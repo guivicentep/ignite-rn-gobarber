@@ -1,6 +1,18 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { Container } from './styles';
+import { RectButtonProperties } from 'react-native-gesture-handler';
 
-const Button: React.FC = () => <Container />;
+import { Container, ButtonText } from './styles';
+
+interface ButtonProps extends RectButtonProperties {
+  children: string;
+}
+
+const Button: React.FC = ({ children, ...rest }) => (
+  <Container {...rest}>
+    <ButtonText>{children}</ButtonText>
+  </Container>
+);
 
 export default Button;
