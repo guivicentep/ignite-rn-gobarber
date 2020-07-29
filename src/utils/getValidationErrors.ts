@@ -7,7 +7,8 @@ interface Errors {
 export default function getValidationErrors(err: ValidationError): Errors {
   const validationErrors: Errors = {};
 
-  err.inner.forEach(error => {
+  // eslint-disable-next-line prettier/prettier
+  err.inner.forEach((error) => {
     validationErrors[error.path] = error.message;
   });
 
