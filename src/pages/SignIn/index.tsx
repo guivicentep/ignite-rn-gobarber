@@ -46,9 +46,7 @@ const SignIn: React.FC = () => {
   const passwordInputRef = useRef<TextInput>(null);
   const navigation = useNavigation();
 
-  const { signIn, user } = useAuth();
-
-  console.log(user);
+  const { signIn } = useAuth();
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   const handleSignIn = useCallback(
@@ -137,7 +135,11 @@ const SignIn: React.FC = () => {
             <Button onPress={() => formRef.current?.submitForm()}>
               Entrar
             </Button>
-            <ForgotPassword onPress={() => {}}>
+            <ForgotPassword
+              onPress={() => {
+                formRef.current?.submitForm;
+              }}
+            >
               <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
             </ForgotPassword>
           </Container>
